@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pl">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,8 +8,39 @@
     <title>Baza gier</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
     <h1>Baza gier</h1>
-    
+    <section>
+        <table>
+            <tbody>
+                <tr>
+                    <th>Tytuł gry</th>
+                    <th>Ocena</th>
+                    <th>Szczegóły</th>
+                    <th>Usuń</th>
+                </tr>
+                <tr>
+                    <td>Fifa 2022</td>
+                    <td>9</td>
+                    <td>
+                        <button id="details-button">Pokaż szczegóły</button>
+                    </td>
+                    <td>
+                        <button id="remove-button">Usuń</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+    <section class="description">Opis gry: </section>
+    <section class="form">
+        <input type="text" id="title" placeholder="Tytuł gry" required>
+        <input type="number" id="vote" placeholder="Ocena" required>
+        <input type="text" id="descriprion" placeholder="Opis" required>
+        <button id="submit-button">Dodaj do listy</button>
+    </section>
+
 </body>
+
 </html>
