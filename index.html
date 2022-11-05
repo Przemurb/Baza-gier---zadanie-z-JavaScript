@@ -13,13 +13,15 @@
     <h1>Baza gier</h1>
     <section>
         <table>
-            <tbody>
+            <thead>
                 <tr>
                     <th>Tytuł gry</th>
                     <th>Ocena</th>
                     <th>Szczegóły</th>
                     <th>Usuń</th>
                 </tr>
+            </thead>
+            <tbody id="table">
                 <tr>
                     <td>Fifa 2022</td>
                     <td>9</td>
@@ -37,10 +39,10 @@
     <section class="form">
         <input type="text" id="title" placeholder="Tytuł gry" required>
         <input type="number" id="vote" placeholder="Ocena" required>
-        <input type="text" id="descriprion" placeholder="Opis" required>
+        <input type="text" id="description" placeholder="Opis" required>
         <button id="submit-button">Dodaj do listy</button>
     </section>
-
+    <script src="script.js"></script>
 </body>
 
 </html>
