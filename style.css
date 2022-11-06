@@ -17,8 +17,10 @@ table th {
     height: 30px;
     background-color: darkgray;
 }
+
 .form {
-    margin-top: 30px;;
+    margin-top: 30px;
+    ;
 }
 
 .description {
@@ -34,6 +36,10 @@ table th {
     width: 80%;
     margin: auto;
     margin-top: 1px;
+}
+
+input-error::placeholder {
+    color: red;
 }
 
 .form button {

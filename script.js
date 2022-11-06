@@ -1,4 +1,4 @@
-function registerAddButton () {
+function registerAddButton() {
     let addButton = document.getElementById("submit-button");
     addButton.addEventListener("click", addToList)
 }
@@ -7,20 +7,28 @@ function addToList() {
     let title = document.getElementById("title").value;
     let vote = document.getElementById("vote").value;
     let description = document.getElementById("description").value;
+    if (title != "" & vote != "" & description != "") {
+        createNewRow();
+        clearForm();
+    } else {
+        input.getElementById("title").addClass('input-error');
+    }
 
-    let table = document.getElementById("table");
-    let row = table.insertRow();
-    let cell1 = row.insertCell(0);
-    let cell2 = row.insertCell(1);
-    let cell3 = row.insertCell(2);
-    let cell4 = row.insertCell(3);
 
-    cell1.innerHTML = title;
-    cell2.innerHTML = vote;
-    cell3.innerHTML = "<button id='details-button'>Pokaż szczegóły</button>";
-    cell4.innerHTML = "<button id='remove-button'onclick='deleteFromList(this)'>Usuń</button>";
-    
-    clearForm();
+
+    function createNewRow() {
+        let table = document.getElementById("table");
+        let row = table.insertRow();
+        let cell1 = row.insertCell(0);
+        let cell2 = row.insertCell(1);
+        let cell3 = row.insertCell(2);
+        let cell4 = row.insertCell(3);
+
+        cell1.innerHTML = title;
+        cell2.innerHTML = vote;
+        cell3.innerHTML = "<button id='details-button'>Pokaż szczegóły</button>";
+        cell4.innerHTML = "<button id='remove-button'onclick='deleteFromList(this)'>Usuń</button>";
+    }
 }
 
 function clearForm() {
@@ -38,7 +46,6 @@ registerAddButton();
 function deleteFromList(r) {
     let table = document.getElementById("table");
     let i = r.parentNode.parentNode.rowIndex;
-    debugger;
     table.deleteRow(i);
 }
 
