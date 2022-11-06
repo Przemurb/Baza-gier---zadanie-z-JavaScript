@@ -12,7 +12,7 @@
 <body>
     <h1>Baza gier</h1>
     <section>
-        <table>
+        <table id="table">
             <thead>
                 <tr>
                     <th>Tytuł gry</th>
@@ -20,8 +20,8 @@
                     <th>Szczegóły</th>
                     <th>Usuń</th>
                 </tr>
-            </thead>
-            <tbody id="table">
+            </thead> -->
+            <tbody >
                 <tr>
                     <td>Fifa 2022</td>
                     <td>9</td>
@@ -29,7 +29,17 @@
                         <button id="details-button">Pokaż szczegóły</button>
                     </td>
                     <td>
-                        <button id="remove-button">Usuń</button>
+                        <button id="remove-button" onclick="deleteFromList(this)">Usuń</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>1</td>
+                    <td>
+                        <button id="details-button">Pokaż szczegóły</button>
+                    </td>
+                    <td>
+                        <button id="remove-button" onclick="deleteFromList(this)">Usuń</button>
                     </td>
                 </tr>
             </tbody>
