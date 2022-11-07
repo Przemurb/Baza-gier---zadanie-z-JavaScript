@@ -24,6 +24,10 @@ function addToList() {
         saveGame();
         clearForm();
     } else {
+        addError();
+    }
+
+    function addError() {
         document.getElementById("title").classList.add("input-error");
         document.getElementById("vote").classList.add("input-error");
         document.getElementById("description").classList.add("input-error");
@@ -46,27 +50,20 @@ function addToList() {
     function saveGame() {
         games.push(new Game(title, vote, description));
     }
-
-    function clearForm() {
-        document.getElementById("title").value = null;
-        document.getElementById("vote").value = null;
-        document.getElementById("description").value = null;
-        document.getElementById("title").classList.remove("input-error");
-        document.getElementById("vote").classList.remove("input-error");
-        document.getElementById("description").classList.remove("input-error");
-    }
 }
 
 registerAddButton();
 
 function deleteFromList(r) {
+    clearForm();
     let table = document.getElementById("table");
     let i = r.parentNode.parentNode.rowIndex;
-    games.splice(i-1, 1);
+    games.splice(i - 1, 1);
     table.deleteRow(i);
 }
 
 function showDescription(d) {
+    clearForm();
     let i = d.parentNode.parentNode.rowIndex;
     let details = games[i - 1];
     document.getElementById("details").innerHTML = 'Opis gry "' + details.title + '": ' + details.description;
@@ -76,6 +73,22 @@ function showDescription(d) {
 function clearDescription() {
     document.getElementById("details").innerHTML = "";
 }
+
+function clearForm() {
+    document.getElementById("title").value = null;
+    document.getElementById("vote").value = null;
+    document.getElementById("description").value = null;
+    clearError();
+
+    function clearError() {
+        document.getElementById("title").classList.remove("input-error");
+        document.getElementById("vote").classList.remove("input-error");
+        document.getElementById("description").classList.remove("input-error");
+    }
+
+}
+
+
 
 // function addExample() {
 //     games.push(new Game("Wiedźmin 3", 10, "Fantastyczna gra o walce z potworami i jeżdzeniu na koniu."));
