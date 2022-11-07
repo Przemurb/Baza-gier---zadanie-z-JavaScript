@@ -18,6 +18,7 @@ function addToList() {
     let title = document.getElementById("title").value;
     let vote = document.getElementById("vote").value;
     let description = document.getElementById("description").value;
+    clearDescription();
     if (title != "" & vote != "" & description != "") {
         createNewRow();
         saveGame();
@@ -69,7 +70,7 @@ function showDescription(d) {
     let i = d.parentNode.parentNode.rowIndex;
     let details = games[i - 1];
     document.getElementById("details").innerHTML = 'Opis gry "' + details.title + '": ' + details.description;
-    setTimeout(() => clearDescription(), 5000);
+    // setTimeout(() => clearDescription(), 5000);
 }
 
 function clearDescription() {
