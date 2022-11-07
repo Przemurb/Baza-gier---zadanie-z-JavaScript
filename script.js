@@ -1,3 +1,14 @@
+class Game {
+    constructor(title, vote, description) {
+        this.title = title;
+        this.vote = vote;
+        this.description = description;
+    }
+}
+
+let games = [];
+
+
 function registerAddButton() {
     let addButton = document.getElementById("submit-button");
     addButton.addEventListener("click", addToList)
@@ -9,14 +20,13 @@ function addToList() {
     let description = document.getElementById("description").value;
     if (title != "" & vote != "" & description != "") {
         createNewRow();
+        saveGame();
         clearForm();
     } else {
         document.getElementById("title").classList.add("input-error");
         document.getElementById("vote").classList.add("input-error");
         document.getElementById("description").classList.add("input-error");
     }
-
-
 
     function createNewRow() {
         let table = document.getElementById("table");
@@ -28,8 +38,12 @@ function addToList() {
 
         cell1.innerHTML = title;
         cell2.innerHTML = vote;
-        cell3.innerHTML = "<button id='details-button'>Pokaż szczegóły</button>";
-        cell4.innerHTML = "<button id='remove-button'onclick='deleteFromList(this)'>Usuń</button>";
+        cell3.innerHTML = "<button id='details-button' onclick='showDescription(this)'>Pokaż szczegóły</button>";
+        cell4.innerHTML = "<button id='remove-button' onclick='deleteFromList(this)'>Usuń</button>";
+    }
+
+    function saveGame() {
+        games.push(new Game(title, vote, description));
     }
 
     function clearForm() {
@@ -42,12 +56,21 @@ function addToList() {
     }
 }
 
-
-
 registerAddButton();
 
 function deleteFromList(r) {
     let table = document.getElementById("table");
     let i = r.parentNode.parentNode.rowIndex;
+    games.splice(i-1, 1);
     table.deleteRow(i);
 }
+
+// function showDescription(d) {
+
+// }
+
+// function addExample() {
+//     games.push(new Game("Wiedźmin 3", 10, "Fantastyczna gra o walce z potworami i jeżdzeniu na koniu."));
+//     games.push(new Game("Starcraft", 7, "Walki kosmitów i różnych ras."));
+//     games.push(new Game("The Sims", 8, "Buduj domy, rozwijaj relacje. Prawdziwe życie w realnym świecie."));
+// }
