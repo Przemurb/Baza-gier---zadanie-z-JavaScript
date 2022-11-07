@@ -65,9 +65,16 @@ function deleteFromList(r) {
     table.deleteRow(i);
 }
 
-// function showDescription(d) {
+function showDescription(d) {
+    let i = d.parentNode.parentNode.rowIndex;
+    let details = games[i - 1];
+    document.getElementById("details").innerHTML = 'Opis gry "' + details.title + '": ' + details.description;
+    setTimeout(() => clearDescription(), 5000);
+}
 
-// }
+function clearDescription() {
+    document.getElementById("details").innerHTML = "";
+}
 
 // function addExample() {
 //     games.push(new Game("Wiedźmin 3", 10, "Fantastyczna gra o walce z potworami i jeżdzeniu na koniu."));
