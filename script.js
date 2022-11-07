@@ -11,7 +11,9 @@ function addToList() {
         createNewRow();
         clearForm();
     } else {
-        input.getElementById("title").addClass('input-error');
+        document.getElementById("title").classList.add("input-error");
+        document.getElementById("vote").classList.add("input-error");
+        document.getElementById("description").classList.add("input-error");
     }
 
 
@@ -29,24 +31,23 @@ function addToList() {
         cell3.innerHTML = "<button id='details-button'>Pokaż szczegóły</button>";
         cell4.innerHTML = "<button id='remove-button'onclick='deleteFromList(this)'>Usuń</button>";
     }
+
+    function clearForm() {
+        document.getElementById("title").value = null;
+        document.getElementById("vote").value = null;
+        document.getElementById("description").value = null;
+        document.getElementById("title").classList.remove("input-error");
+        document.getElementById("vote").classList.remove("input-error");
+        document.getElementById("description").classList.remove("input-error");
+    }
 }
 
-function clearForm() {
-    document.getElementById("title").value = null;
-    document.getElementById("vote").value = null;
-    document.getElementById("description").value = null;
-}
+
 
 registerAddButton();
 
-// function registerRemoveButton() {
-//     let removeButton = document.getElementById("remove-button");
-//     removeButton.addEventListener("click", deleteFromList(this));
-// }
 function deleteFromList(r) {
     let table = document.getElementById("table");
     let i = r.parentNode.parentNode.rowIndex;
     table.deleteRow(i);
 }
-
-// registerRemoveButton();

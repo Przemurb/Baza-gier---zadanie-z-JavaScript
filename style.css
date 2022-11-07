@@ -20,7 +20,6 @@ table th {
 
 .form {
     margin-top: 30px;
-    ;
 }
 
 .description {
@@ -38,7 +37,7 @@ table th {
     margin-top: 1px;
 }
 
-input-error::placeholder {
+.input-error::placeholder {
     color: red;
 }
 
